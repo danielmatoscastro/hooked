@@ -10,11 +10,12 @@ const StyledMovieList = styled.ul`
 
     display: flex;
     justify-content: center;
+    align-items: flex-end;
     flex-wrap: wrap;
 
     & .movie-list-movie {
         margin-top: 2.5rem;
-        margin-right: 1rem;
+        margin-right: 2rem;
     }
 `;
 

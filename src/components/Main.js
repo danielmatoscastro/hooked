@@ -19,11 +19,7 @@ function Main() {
   const [searchFor, setSearchFor] = useState('');
   const [movies, setMovies] = useState([]);
 
-  function onChangeHandler(e) {
-    setSearchFor(e.target.value);
-  }
-
-  function onClickHandler() {
+  function fetchMovies() {
     const URL = `http://www.omdbapi.com/?s=${searchFor}&apikey=ffe28c08`;
     fetch(URL)
       .then((response) => response.json())
@@ -31,9 +27,19 @@ function Main() {
       .catch(() => setMovies([]));
   }
 
+  function onChangeHandler(e) {
+    setSearchFor(e.target.value);
+  }
+
+  function onKeyUpHandler(e) {
+    if (e.key === 'Enter') {
+      fetchMovies();
+    }
+  }
+
   return (
     <StyledMain>
-      <Search onChange={onChangeHandler} onClick={onClickHandler} />
+      <Search onChange={onChangeHandler} onKeyUp={onKeyUpHandler} onClick={fetchMovies} />
       <h2 className="main-subtitle">Sharing a few of our favourite movies</h2>
       <MovieList movies={movies} />
     </StyledMain>

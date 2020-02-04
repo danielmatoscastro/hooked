@@ -14,9 +14,6 @@ const StyledMovie = styled.li`
         text-align: center;
         display: inline-block;
         margin-bottom: 0.5rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
 
     & img {

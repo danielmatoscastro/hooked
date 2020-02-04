@@ -34,10 +34,10 @@ const StyledSearch = styled.div`
     }
 `;
 
-function Search({ onChange, onClick }) {
+function Search({ onChange, onKeyUp, onClick }) {
   return (
     <StyledSearch>
-      <input onChange={onChange} />
+      <input onChange={onChange} onKeyUp={onKeyUp} />
       <button type="button" onClick={onClick}>SEARCH</button>
     </StyledSearch>
   );
@@ -45,6 +45,7 @@ function Search({ onChange, onClick }) {
 
 Search.propTypes = {
   onChange: PropTypes.func.isRequired,
+  onKeyUp: PropTypes.func.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
