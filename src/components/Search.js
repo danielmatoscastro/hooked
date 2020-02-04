@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledSearch = styled.div`
     display: flex;
@@ -33,13 +34,18 @@ const StyledSearch = styled.div`
     }
 `;
 
-function Search() {
+function Search({ onChange, onClick }) {
   return (
     <StyledSearch>
-      <input />
-      <button type="button">SEARCH</button>
+      <input onChange={onChange} />
+      <button type="button" onClick={onClick}>SEARCH</button>
     </StyledSearch>
   );
 }
+
+Search.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
 export default Search;
