@@ -20,7 +20,7 @@ function Main() {
   const [movies, setMovies] = useState([]);
 
   function fetchMovies() {
-    const URL = `http://www.omdbapi.com/?s=${searchFor}&apikey=ffe28c08`;
+    const URL = `https://www.omdbapi.com/?s=${searchFor}&apikey=ffe28c08`;
     fetch(URL)
       .then((response) => response.json())
       .then((response) => setMovies(response.Search ? response.Search : []))
