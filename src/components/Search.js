@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { MdSearch } from 'react-icons/md';
 
 const StyledSearch = styled.div`
     display: flex;
@@ -34,11 +35,15 @@ const StyledSearch = styled.div`
     }
 `;
 
+const StyledMdSearch = styled(MdSearch)`
+  font-size: 1rem;
+`;
+
 function Search({ onChange, onKeyUp, onClick }) {
   return (
     <StyledSearch>
-      <input onChange={onChange} onKeyUp={onKeyUp} />
-      <button type="button" onClick={onClick}>SEARCH</button>
+      <input placeholder="Type here 😎" onChange={onChange} onKeyUp={onKeyUp} />
+      <button type="button" aria-label="Search" onClick={onClick}><StyledMdSearch /></button>
     </StyledSearch>
   );
 }
