@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import defaultPoster from '../static/no-image.png';
+
 const StyledMovie = styled.li`
     list-style: none;
     display: flex;
@@ -36,7 +38,7 @@ function Movie({
   return (
     <StyledMovie className={className}>
       <b>{title}</b>
-      <img src={poster} alt={title} />
+      <img src={poster === 'N/A' ? defaultPoster : poster} alt={title} />
       <span>{`(${year})`}</span>
     </StyledMovie>
   );
