@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import Search from './Search';
@@ -16,7 +16,7 @@ const StyledMain = styled.main`
 `;
 
 function Main() {
-  const [searchFor, setSearchFor] = useState('');
+  const [searchFor, setSearchFor] = useState('man');
   const [movies, setMovies] = useState([]);
 
   function fetchMovies() {
@@ -26,6 +26,8 @@ function Main() {
       .then((response) => setMovies(response.Search ? response.Search : []))
       .catch(() => setMovies([]));
   }
+
+  useEffect(fetchMovies, []);
 
   function onChangeHandler(e) {
     setSearchFor(e.target.value);

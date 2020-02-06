@@ -20,7 +20,17 @@ const StyledMovieList = styled.ul`
 `;
 
 function MovieList({ movies }) {
-  const movieList = movies.map((movie) => (
+  const uniqueMovies = [];
+  movies.forEach((movie) => {
+    const containID = uniqueMovies
+      .reduce((contain, current) => (contain || current.imdbID === movie.imdbID), false);
+
+    if (!containID) {
+      uniqueMovies.push(movie);
+    }
+  });
+
+  const movieList = uniqueMovies.map((movie) => (
     <Movie
       className="movie-list-movie"
       key={movie.imdbID}
